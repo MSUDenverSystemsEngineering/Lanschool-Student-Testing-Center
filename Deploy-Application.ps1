@@ -138,7 +138,7 @@ Try {
 		If ($useDefaultMsi) {
 			[hashtable]$ExecuteDefaultMSISplat =  @{ Action = 'Install'; Path = $defaultMsiFile }; If ($defaultMstFile) { $ExecuteDefaultMSISplat.Add('Transform', $defaultMstFile) }
 			Execute-MSI @ExecuteDefaultMSISplat; If ($defaultMspFiles) { $defaultMspFiles | ForEach-Object { Execute-MSI -Action 'Patch' -Path $_ } }
-		}
+	}
 
 		## <Perform Installation tasks here>
         $exitCode = Execute-MSI -Action "Install" -Path "$dirFiles\Student.msi" -AddParameters '/QN ADVANCE_OPTIONS=1 SECURE_MODE=1 PASSWORD=MSUTesting PASSWORD_CONFIRM=MSUTesting CHANNEL=347' -AllowRebootPassThru
@@ -215,7 +215,7 @@ Try {
 		If ($useDefaultMsi) {
 			[hashtable]$ExecuteDefaultMSISplat =  @{ Action = 'Repair'; Path = $defaultMsiFile; }; If ($defaultMstFile) { $ExecuteDefaultMSISplat.Add('Transform', $defaultMstFile) }
 			Execute-MSI @ExecuteDefaultMSISplat
-		}
+	}
 		# <Perform Repair tasks here>
 
 		##*===============================================
