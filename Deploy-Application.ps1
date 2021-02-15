@@ -65,7 +65,7 @@ Try {
 	##* VARIABLE DECLARATION
 	##*===============================================
 	## Variables: Application
-	[string]$appVendor = 'Lenovo'
+	[string]$appVendor = 'Lenvo'
 	[string]$appName = 'Lanschool'
 	[string]$appVersion = 'v9.0.1.154'
 	[string]$appArch = 'x86'
@@ -141,16 +141,14 @@ Try {
 		}
 
 		## <Perform Installation tasks here>
-		$exitCode = Execute-MSI -Action "Install" -Path "$dirFiles\Student.msi" -AddParameters '/QN ADVANCE_OPTIONS=1 SECURE_MODE=1 PASSWORD=MSUTesting PASSWORD_CONFIRM=MSUTesting CHANNEL=347' -AllowRebootPassThru
-		If (($exitCode.ExitCode -ne "0") -and ($mainExitCode -ne "3010")) { $mainExitCode = $exitCode.ExitCode }
-
+		$exitCode = Execute-MSI -Action "Install" -Path "dirFiles\Student.msi" -AddParameters '/QN ADVANCE_OPTIONS=1 SECURE_MODE=1 PASSWORD=MSUTesting PASSWORD_CONFIRM= MSUTesting CHANNEL=347'
+		If (($exitCode.ExitCode -ne "0") -and ($mainExitCode -ne "3010")) {$mainExitCode =$exitCode.ExitCode }
 		##*===============================================
 		##* POST-INSTALLATION
 		##*===============================================
 		[string]$installPhase = 'Post-Installation'
 
 		## <Perform Post-Installation tasks here>
-
 
 		## Display a message at the end of the install
 		If (-not $useDefaultMsi) {}
@@ -246,8 +244,8 @@ Catch {
 # SIG # Begin signature block
 # MIIf2QYJKoZIhvcNAQcCoIIfyjCCH8YCAQExDzANBglghkgBZQMEAgEFADB5Bgor
 # BgEEAYI3AgEEoGswaTA0BgorBgEEAYI3AgEeMCYCAwEAAAQQH8w7YFlLCE63JNLG
-# KX7zUQIBAAIBAAIBAAIBAAIBADAxMA0GCWCGSAFlAwQCAQUABCAUUoQSUtdziWEU
-# b8k49lFP5ZN2Kh8zImC8XXLWmpkXLaCCGZwwggWuMIIElqADAgECAhAHA3HRD3la
+# KX7zUQIBAAIBAAIBAAIBAAIBADAxMA0GCWCGSAFlAwQCAQUABCA/P/NZ9GeNCY9e
+# PlzhHmSS5i+Lp5binIkAsOU5kbdm6qCCGZwwggWuMIIElqADAgECAhAHA3HRD3la
 # QHGZK5QHYpviMA0GCSqGSIb3DQEBCwUAMHwxCzAJBgNVBAYTAlVTMQswCQYDVQQI
 # EwJNSTESMBAGA1UEBxMJQW5uIEFyYm9yMRIwEAYDVQQKEwlJbnRlcm5ldDIxETAP
 # BgNVBAsTCEluQ29tbW9uMSUwIwYDVQQDExxJbkNvbW1vbiBSU0EgQ29kZSBTaWdu
@@ -389,29 +387,29 @@ Catch {
 # CxMISW5Db21tb24xJTAjBgNVBAMTHEluQ29tbW9uIFJTQSBDb2RlIFNpZ25pbmcg
 # Q0ECEAcDcdEPeVpAcZkrlAdim+IwDQYJYIZIAWUDBAIBBQCggYQwGAYKKwYBBAGC
 # NwIBDDEKMAigAoAAoQKAADAZBgkqhkiG9w0BCQMxDAYKKwYBBAGCNwIBBDAcBgor
-# BgEEAYI3AgELMQ4wDAYKKwYBBAGCNwIBFTAvBgkqhkiG9w0BCQQxIgQg0+6ZdK6d
-# mTCjdEwjZq0deFriI4aBEm3nXr6jXAP6v4EwDQYJKoZIhvcNAQEBBQAEggEAur6c
-# 1i9jpsnEDEDQJTrH6BF37TDeV3wL8LQl+JlYnjAAdkB8FDnpjYftAJSmOUDwX7cY
-# tQRDboYhJQn/IXe9D0qCiamT3z1ddMpTxMZ+Jc0og+L3XY75DYn8nlsb0tUeuPQ3
-# Jcccb1WNZrPSEZuWwBkNsY5zQJoL/yQKOcuggcJ7x2pisi7NFZ7bMjW+VTYkLQYg
-# 69Tkz+O7eRN3S96RejmlHNLmQ66+tCXfRrfhu2KRqjb3qCb1fFjxuM0+YLCTO4bG
-# ph9JJp75vbOm9hEooUw7gKTCgUARF3zaQqoOgyZeh5TtojL4MNp5UjehHx9bymKr
-# xZ7dFsN/QkywCyQ4lKGCA0wwggNIBgkqhkiG9w0BCQYxggM5MIIDNQIBATCBkjB9
+# BgEEAYI3AgELMQ4wDAYKKwYBBAGCNwIBFTAvBgkqhkiG9w0BCQQxIgQgkFvzbdCY
+# WQTKUocjbCvmtD1gJFmLoSDIqGl+d0DeBx0wDQYJKoZIhvcNAQEBBQAEggEAB/9I
+# in3M0nfsEWmcJzhg/BihdHB87Stuwi+GgTCDgUSguXEbD+MmPjugoZawHOtX0T/D
+# d6yc3z5cR2w/U60/qVOryAzUjPoGOTzHF7v0j1wApNIJXNEGuer9DdIM7/wlnRBV
+# raZet3AOSFWmQg33QFhHwno6Lrhc3FfXBxgyGkuLa+GPcHyrRky/LrqbiJB9HUSl
+# 0wD0jNai1vN6Wo5HprHCCA6KYGlFVliROquV7FUiksWHG3SBlSZixh5GhlsbLRGy
+# +YHFlj9/Ads9dgk1h2mvaTHnoV3omxkOf3ZKfhjxIBeVyk+r5l3r6+HjpptM+yzu
+# jUMh+ImNaS8hD/q4zaGCA0wwggNIBgkqhkiG9w0BCQYxggM5MIIDNQIBATCBkjB9
 # MQswCQYDVQQGEwJHQjEbMBkGA1UECBMSR3JlYXRlciBNYW5jaGVzdGVyMRAwDgYD
 # VQQHEwdTYWxmb3JkMRgwFgYDVQQKEw9TZWN0aWdvIExpbWl0ZWQxJTAjBgNVBAMT
 # HFNlY3RpZ28gUlNBIFRpbWUgU3RhbXBpbmcgQ0ECEQCMd6AAj/TRsMY9nzpIg41r
 # MA0GCWCGSAFlAwQCAgUAoHkwGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkq
-# hkiG9w0BCQUxDxcNMjEwMjE1MTYzMDEyWjA/BgkqhkiG9w0BCQQxMgQw3SNcjMZc
-# 21f4BboWXh/eyJhpC+oocyzSxE1682IYKFrOP46jpGLyzrlKQXgDqE1/MA0GCSqG
-# SIb3DQEBAQUABIICAEV3iWh3NEzNygc5kuZ+WifTwQvMkaYLqYWKTylqO+gIYNQC
-# BHpFrWBsb7rnFixDSbHM8P316G+3yV+8PZi+7yfypoSCgAoQrDbGn0ELpMIGTuUL
-# pjL1zEv85kr9WXhiWiTvYOM0aqEt59oOri2V2g+MFWKUEAQsWsOc6iVC4lfGaUVH
-# wgPXSm4/V7ShE/EHRlyEPglv8ApbuDpPM1F9ef2f2ZhxoWFJaFEyyKVU/7hAEZWJ
-# XLYtHDUiN6jFozjc+V7Mj/C+CMe5lQQ2CLghOvW/q0m6yJQa+bAmjhuVmnWD35ZI
-# /UtTg2zy4T0Te44yAehCunmDRB+dq/gVu8q1VWUdn7GAS1O949vHu0UkiVW81a2o
-# UuZ7MuBXEF0bNcbeAc057SbuSWrUofySGUSUDBROSqCpG8gBgGIZBx39N4WqyLJx
-# DL5IcdHg999gGX9xn4jdF9DSgOJX/geWTMTG12Pxdp6qmc5CdP/pTmz9hLS0AHbi
-# IcaYPpfaX/GqCsT72habJzqi5k93ofnQCJJ7Ds97EQn+9h9+U+1GprG7e3SKbo8b
-# lA2LB1pvlXEtHRp+9LFUIsDzRXghj1SqF5H8U4g1hJhl8t4ZL2/L6RPJ8y0M2XIm
-# IA0j8fPuOvWbtfwNCfygZB1ULZsQNSf/DiBF6wUyADiAYB++1uV+YezQgyAC
+# hkiG9w0BCQUxDxcNMjAxMjE3MjE0MjMxWjA/BgkqhkiG9w0BCQQxMgQw3a7SA0cy
+# g59A9vsk/JFE94BbpxyK3SoDJlGzUv8JkchICk0JpWOBBVa9U2gOtN9eMA0GCSqG
+# SIb3DQEBAQUABIICAAa+mcvb2qj+E2xajVgHIbhryw8oBkEDwm9Sv5pLRR36auvk
+# 27rVfKi7sjZDxKquGpPNzfzmtAbGMJlurpCV81Y5M0zTEc7npVNB3zgWARsYDs8W
+# 1MduH+YY/5ch7BH/7JuSLJl/Ae2qOL7q11DWkl06H+LAtBlU37CgWFYUiJZhbW9n
+# fadIzU3a3ojeek0sX65MfSALtTZu+wrLA3FAqdQUhAXvscAf88VtAF5ieNOx+TKu
+# bMuXSVGuqxbVj4lJoHDtxgZ+f9yNp2VYXOTrt7vL+cJVMXckl/OUfvf5/m+sO1p2
+# yzU+2/QLSBnvX/I07mvMoyU3vzFRrLcIHI0fc/JSx1ZPewa40FHEcskA0hwbJIHU
+# sLqYOZt1wAo3y5dM/4hqxRsj/tu5lVxQHsK7+nbwDi+C+5b7rb+GQ9AvchrN3H62
+# o/uwDN1QaswqY7V1mMo7HB7GtgehHtVM/zv56lBXRLJvpemblpb5mLmHmbywe8uL
+# Vq+2ItVALcVzMfcEiJSqT5AY21/R76WXp8X/eGbtDWVVdWyMpt7aEYK0SVEfGlBk
+# 0xYggbFQtTI9yRDe51/HFCGyrscWi0vw+rPn0R76BjVnq/fz55cx5E1a/21qCHa4
+# ehZw1F75xo4LzezPCmdbNShXccjNnFUCq19N/c02Tz/UeJ1EZ/FH64my6Amt
 # SIG # End signature block
