@@ -178,11 +178,11 @@ Try {
 		If ($useDefaultMsi) {
 			[hashtable]$ExecuteDefaultMSISplat =  @{ Action = 'Uninstall'; Path = $defaultMsiFile }; If ($defaultMstFile) { $ExecuteDefaultMSISplat.Add('Transform', $defaultMstFile) }
 			Execute-MSI @ExecuteDefaultMSISplat
-		}
+	}
 
 		# <Perform Uninstallation tasks here>
-        $exitCode = Execute-MSI -Action "Uninstall" -Path "$dirFiles\Student.msi" -AddParameters '/QN' 
-        If (($exitCode.ExitCode -ne "0") -and ($mainExitCode -ne "3010")) { $mainExitCode = $exitCode.ExitCode }
+		$exitCode = Execute-MSI -Action "Uninstall" -Path "$dirFiles\Student.msi" -AddParameters '/QN' 
+		If (($exitCode.ExitCode -ne "0") -and ($mainExitCode -ne "3010")) { $mainExitCode = $exitCode.ExitCode }
 
 
 		##*===============================================
