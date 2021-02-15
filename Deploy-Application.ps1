@@ -141,7 +141,7 @@ Try {
 		}
 
 		## <Perform Installation tasks here>
-		$exitCode = Execute-MSI -Action "Install" -Path "$dirFiles\Student.msi" -AddParameters '/QN ADVANCE_OPTIONS=1 SECURE_MODE=1 PASSWORD=MSUTesting PASSWORD_CONFIRM=MSUTesting CHANNEL=347' -AllowRebootPassThru
+	$exitCode = Execute-MSI -Action "Install" -Path "$dirFiles\Student.msi" -AddParameters '/QN ADVANCE_OPTIONS=1 SECURE_MODE=1 PASSWORD=MSUTesting PASSWORD_CONFIRM=MSUTesting CHANNEL=347' -AllowRebootPassThru
 		If (($exitCode.ExitCode -ne "0") -and ($mainExitCode -ne "3010")) { $mainExitCode = $exitCode.ExitCode }
 
 		##*===============================================
@@ -181,7 +181,7 @@ Try {
 		}
 
 		# <Perform Uninstallation tasks here>
-		$exitCode = Execute-MSI -Action "Uninstall" -Path "$dirFiles\Student.msi" -AddParameters '/QN' 
+	$exitCode = Execute-MSI -Action "Uninstall" -Path "$dirFiles\Student.msi" -AddParameters '/QN' 
 		If (($exitCode.ExitCode -ne "0") -and ($mainExitCode -ne "3010")) { $mainExitCode = $exitCode.ExitCode }
 
 
@@ -245,8 +245,8 @@ Catch {
 # SIG # Begin signature block
 # MIIfdAYJKoZIhvcNAQcCoIIfZTCCH2ECAQExDzANBglghkgBZQMEAgEFADB5Bgor
 # BgEEAYI3AgEEoGswaTA0BgorBgEEAYI3AgEeMCYCAwEAAAQQH8w7YFlLCE63JNLG
-# KX7zUQIBAAIBAAIBAAIBAAIBADAxMA0GCWCGSAFlAwQCAQUABCAzKaKx0HGT4mcD
-# 1IAOQZsUzatpmRCz4uNfwMRoVibPgaCCGeEwggQUMIIC/KADAgECAgsEAAAAAAEv
+# KX7zUQIBAAIBAAIBAAIBAAIBADAxMA0GCWCGSAFlAwQCAQUABCB9tDQAMVw60cEj
+# suOIN/wrSm9ZtyJU1ZXekSwYeNLVqKCCGeEwggQUMIIC/KADAgECAgsEAAAAAAEv
 # TuFS1zANBgkqhkiG9w0BAQUFADBXMQswCQYDVQQGEwJCRTEZMBcGA1UEChMQR2xv
 # YmFsU2lnbiBudi1zYTEQMA4GA1UECxMHUm9vdCBDQTEbMBkGA1UEAxMSR2xvYmFs
 # U2lnbiBSb290IENBMB4XDTExMDQxMzEwMDAwMFoXDTI4MDEyODEyMDAwMFowUjEL
@@ -390,25 +390,25 @@ Catch {
 # bW9uIFJTQSBDb2RlIFNpZ25pbmcgQ0ECEAcDcdEPeVpAcZkrlAdim+IwDQYJYIZI
 # AWUDBAIBBQCggYQwGAYKKwYBBAGCNwIBDDEKMAigAoAAoQKAADAZBgkqhkiG9w0B
 # CQMxDAYKKwYBBAGCNwIBBDAcBgorBgEEAYI3AgELMQ4wDAYKKwYBBAGCNwIBFTAv
-# BgkqhkiG9w0BCQQxIgQgouPyA3O+0nI+fJeXafPn+NNrbxfiO0cPXpchDgnALpUw
-# DQYJKoZIhvcNAQEBBQAEggEADIK0WJzwqgaVD+tqEjY3vC3jgWezWGNrCTvWvdpa
-# j0ABrU+AMPPv2fsdhOGac9P+hnQXPOX2o0Zliv1FA2ZznM4om6LFfw5Alci5DQVF
-# 2U2OqHvButAoONyJmrfGzTos8ahc6UrosW1wLFo8msF0JUrAL3aD4Dgj1Lni+5Sa
-# OvCjohDbhecOtbjxG/1ftmp+2FFupOVfbOzii2eKXAN8jL6i8KXHCAw3UBBvSgEf
-# HFJegbP8dFN/LzB0t4alzwa+k67KnaknJKNtO06uZrPD8QRmcyXiKH1mzt9qCLwP
-# R0H9Rco5HrjVbzbrpzzI3SecDlhyil7lurKxNx7tnq4O16GCAqIwggKeBgkqhkiG
+# BgkqhkiG9w0BCQQxIgQgwkeZLi4TTb/w7da2kiJDMwVC+n1Vmb+J1HFuY64Rb7Yw
+# DQYJKoZIhvcNAQEBBQAEggEAsBYGlGcl3IeDGmHgNrRQuK5asYvmHATPls8QMrjH
+# nfkBmXYR29qgT/v1E2E5ZlBsWVoJ58eIJlH1pFfLIOlzbcQ00KJ1VeRHD+6ioTca
+# a7Vr9xoGygYZVL+uRdk464uzSagSwTsRlv65utlYRBCpguv/AuwAV6QKKcdPDM0f
+# 6P48ATrmsABxsGbbXeKYNOdugguSONMp6MRjP940dXMOfoNsU2okptktpvGcKEZK
+# 4kEwG67HMzRx9xcusS+PFtHVeXWRBG2W7BFzXt8W/CwcdjfN8Ra9i3hOZqDoFjgU
+# +yMAo2bk/QROK2i9OFZKelIUmAIqQaIlJkNgxddOZ3TFoaGCAqIwggKeBgkqhkiG
 # 9w0BCQYxggKPMIICiwIBATBoMFIxCzAJBgNVBAYTAkJFMRkwFwYDVQQKExBHbG9i
 # YWxTaWduIG52LXNhMSgwJgYDVQQDEx9HbG9iYWxTaWduIFRpbWVzdGFtcGluZyBD
 # QSAtIEcyAhIRIdaZp2SXPvH4Qn7pGcxTQRQwCQYFKw4DAhoFAKCB/TAYBgkqhkiG
-# 9w0BCQMxCwYJKoZIhvcNAQcBMBwGCSqGSIb3DQEJBTEPFw0yMTAyMTUxOTE3MDNa
-# MCMGCSqGSIb3DQEJBDEWBBTspU3AjvBoEZkCVdQY8Z4TawWcYDCBnQYLKoZIhvcN
+# 9w0BCQMxCwYJKoZIhvcNAQcBMBwGCSqGSIb3DQEJBTEPFw0yMTAyMTUyMDM3NTZa
+# MCMGCSqGSIb3DQEJBDEWBBSdo2NgZrqpLiUBjF+yiru1KsRQ8jCBnQYLKoZIhvcN
 # AQkQAgwxgY0wgYowgYcwgYQEFGO4L6th9YOQlpUFCwAknFApM+x5MGwwVqRUMFIx
 # CzAJBgNVBAYTAkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMSgwJgYDVQQD
 # Ex9HbG9iYWxTaWduIFRpbWVzdGFtcGluZyBDQSAtIEcyAhIRIdaZp2SXPvH4Qn7p
-# GcxTQRQwDQYJKoZIhvcNAQEBBQAEggEANDYRowqBVFeLhPC9VkIFxA3Ffds3kTZj
-# pIAokgtloaY1aq0Oph/r1mnmYW9U2TowVlcEryL3k+KcNYzYGvco702Nvn6T2zDM
-# 2zrOSmcO54OoMK1lsazRlGYVgRsnYtBbv/ebRKXr7H4TQkPe9RJvWgBgwIVsMaH+
-# zuRRe/S60O1f5KZ4YU0PP+qzCE0AjA8SQoxjaJySBjwVbWKzGnmTw4/XIYw9bHy7
-# U2UG8GvYevMmg8p0IjoPjC73ktyrfxcQVyHVazKN7ZfFi2rUWGyWNrhGb2r9jsPP
-# ihsRaley5EWlmC0VR4/qE8bsuHDo/ARZTf2uE33KKHOY7huO/5uXRg==
+# GcxTQRQwDQYJKoZIhvcNAQEBBQAEggEAlHlUXtGTfqwcOlyjWu7qjECm8oB8NXF9
+# SsQi8Bw3cof6VeBjJadu3CUmON2rum/N6ZgjQgPa0hn5QE/VqhEm6XUfje5/NbRJ
+# nSe3f61CzaB8SnzqiM6d2oDrA3R4HpSLr4kUjZFulW7Osb7nieDH7+WV4WBO56Jl
+# We2aDYjD0Wgyp08rSHHpSAa+MNueDU1pZhfDsMUt2++HeEKrb/cNjQizGX8y6R6f
+# WMCrE5o9Pd7JX5kYz2pS0ibg4PTllaCXEV/o5qY1oBhYaCdW7RldueBr3hFfa73k
+# 5CmA16XoAZkpHAcOA0s472TZL4U9AA5O2s3sk60mYmmhgKS8g8UeKg==
 # SIG # End signature block
