@@ -138,11 +138,11 @@ Try {
 		If ($useDefaultMsi) {
 			[hashtable]$ExecuteDefaultMSISplat =  @{ Action = 'Install'; Path = $defaultMsiFile }; If ($defaultMstFile) { $ExecuteDefaultMSISplat.Add('Transform', $defaultMstFile) }
 			Execute-MSI @ExecuteDefaultMSISplat; If ($defaultMspFiles) { $defaultMspFiles | ForEach-Object { Execute-MSI -Action 'Patch' -Path $_ } }
-	}
+		}
 
 		## <Perform Installation tasks here>
-        $exitCode = Execute-MSI -Action "Install" -Path "$dirFiles\Student.msi" -AddParameters '/QN ADVANCE_OPTIONS=1 SECURE_MODE=1 PASSWORD=MSUTesting PASSWORD_CONFIRM=MSUTesting CHANNEL=347' -AllowRebootPassThru
-        If (($exitCode.ExitCode -ne "0") -and ($mainExitCode -ne "3010")) { $mainExitCode = $exitCode.ExitCode }
+		$exitCode = Execute-MSI -Action "Install" -Path "$dirFiles\Student.msi" -AddParameters '/QN ADVANCE_OPTIONS=1 SECURE_MODE=1 PASSWORD=MSUTesting PASSWORD_CONFIRM=MSUTesting CHANNEL=347' -AllowRebootPassThru
+			If (($exitCode.ExitCode -ne "0") -and ($mainExitCode -ne "3010")) { $mainExitCode = $exitCode.ExitCode }
 
 		##*===============================================
 		##* POST-INSTALLATION
@@ -178,12 +178,11 @@ Try {
 		If ($useDefaultMsi) {
 			[hashtable]$ExecuteDefaultMSISplat =  @{ Action = 'Uninstall'; Path = $defaultMsiFile }; If ($defaultMstFile) { $ExecuteDefaultMSISplat.Add('Transform', $defaultMstFile) }
 			Execute-MSI @ExecuteDefaultMSISplat
-	}
+		}
 
 		# <Perform Uninstallation tasks here>
 		$exitCode = Execute-MSI -Action "Uninstall" -Path "$dirFiles\Student.msi" -AddParameters '/QN' 
-		If (($exitCode.ExitCode -ne "0") -and ($mainExitCode -ne "3010")) { $mainExitCode = $exitCode.ExitCode }
-
+			If (($exitCode.ExitCode -ne "0") -and ($mainExitCode -ne "3010")) { $mainExitCode = $exitCode.ExitCode }
 
 		##*===============================================
 		##* POST-UNINSTALLATION
@@ -215,7 +214,7 @@ Try {
 		If ($useDefaultMsi) {
 			[hashtable]$ExecuteDefaultMSISplat =  @{ Action = 'Repair'; Path = $defaultMsiFile; }; If ($defaultMstFile) { $ExecuteDefaultMSISplat.Add('Transform', $defaultMstFile) }
 			Execute-MSI @ExecuteDefaultMSISplat
-	}
+		}
 		# <Perform Repair tasks here>
 
 		##*===============================================
@@ -226,7 +225,7 @@ Try {
 		## <Perform Post-Repair tasks here>
 
 
-	}
+    }
 	##*===============================================
 	##* END SCRIPT BODY
 	##*===============================================
